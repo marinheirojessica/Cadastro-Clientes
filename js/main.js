@@ -72,3 +72,24 @@ function listarClientes() {
        listaClientes.appendChild(listaItem);
     });
 }
+
+function toUpperCaseInputs(){
+    const nomeInput = document.getElementById('nome');
+    const emailInput = document.getElementById('email');
+    const telefoneInput = document.getElementById('telefone');
+    const cpfInput = document.getElementById('cpf');
+
+    nomeInput.addEventListener('input', ()=> { nomeInput.value = nomeInput.value.toUpperCase();
+    });
+
+    emailInput.addEventListener('input', () => { emailInput.value = emailInput.value.toUpperCase(); 
+    });
+
+    telefoneInput.addEventListener('input', () => { telefoneInput.value = telefoneInput.value.toUpperCase();
+    })
+
+    cpfInput.addEventListener('input', () => { cpfInput.value = cpfInput.value.toUpperCase();
+    });
+}
+    // Chame a função para aplicar o evento de transformar em maiúsculo nos inputs
+    toUpperCaseInputs();
