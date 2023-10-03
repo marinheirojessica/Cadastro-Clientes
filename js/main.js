@@ -23,6 +23,9 @@ function salvarCliente() {
     document.getElementById('telefone').value = '';
     document.getElementById('cpf').value = '';
 
+    //Salvar os clientes no localStorage
+    localStorage.setItem('clientes', JSON.stringify(clientes));
+
     alert('Cliente salvo com sucesso!');
 }
 
@@ -34,6 +37,12 @@ function listarClientes() {
 
     console.log('Clientes:', clientes);
 
+    //Carregar os clientes do localStorage
+    const storedClientes = localStorage.getItem('clientes');
+    
+    if(storedClientes) {
+        clientes = JSON.parse(storedClientes);
+    }
 
     if(clientes.length === 0) {
         console.log('Nenhum cliente cadastrado.')
