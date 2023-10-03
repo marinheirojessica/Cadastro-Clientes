@@ -1,22 +1,32 @@
 let clientes = [];
-  
-function salvarCliente() {
-    console.log('Função salvarCliente foi chamada.');
 
-    const nome =  document.getElementById('nome').value;
+function validarFormulario(){
+    const nome = document.getElementById('nome').value;
     const email = document.getElementById('email').value;
     const telefone = document.getElementById('telefone').value;
     const cpf = document.getElementById('cpf').value;
 
-    console.log('Nome:', nome);
-    console.log('Email:', email);
-    console.log('Telefone:', telefone);
-    console.log('CPF:', cpf);
+    //Verificar se algum comppo está vazio
+    if(!nome || !email || !telefone || !cpf){
+        alert('Por favor, preencha todos os campos.');
+        return false; //Impede o envio do formulário
+    }
+
+    //Se todos os campos estão preenchidos, chama a função para salvar o cliente
+    salvarCliente(nome, email, telefone, cpf);
+    
+    //Permite o envio do formulário
+    return true;
+}
+  
+function salvarCliente(nome, email, telefone, cpf){
+    console.log('Função salvarCliente foi chamada.');
 
     const cliente = { nome, email, telefone, cpf};
     clientes.push(cliente);
-    console.log('Cliente salvo:, cliente');
 
+    console.log('Cliente salvo:, cliente');
+ 
     //Limpar os campos após salvar
     document.getElementById('nome').value = '';
     document.getElementById('email').value = '';
@@ -39,7 +49,7 @@ function listarClientes() {
 
     //Carregar os clientes do localStorage
     const storedClientes = localStorage.getItem('clientes');
-    
+
     if(storedClientes) {
         clientes = JSON.parse(storedClientes);
     }
