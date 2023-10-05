@@ -25,7 +25,7 @@ function salvarCliente(nome, email, telefone, cpf){
     const cliente = { nome, email, telefone, cpf};
     clientes.push(cliente);
 
-    console.log('Cliente salvo:, cliente');
+    console.log('Cliente salvo: cliente');
  
     //Limpar os campos após salvar
     document.getElementById('nome').value = '';
@@ -61,13 +61,12 @@ function listarClientes() {
     }
 
     clientes.forEach((cliente, index) => {
-        const listaItem = document.createElement('li');
+        const listaItem = document.createElement('tr');
         listaItem.innerHTML = `
-        Cliente ${index + 1}:<br>
-        Nome: ${cliente.nome}<br>
-        Email: ${cliente.email}<br>
-        Telefone: ${cliente.telefone}<br>
-        CPF: ${cliente.cpf}<br><br>
+        <td>${cliente.nome}</td>
+        <td>${cliente.email}</td>
+        <td>${cliente.telefone}</td>
+        <td>${cliente.cpf}</td>
         `;
        listaClientes.appendChild(listaItem);
     });
