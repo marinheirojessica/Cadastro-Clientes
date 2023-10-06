@@ -27,16 +27,17 @@
         </div>
         <div class="mb-4">
             <label for="telefone" class="form_label text-center">Telefone</label>
-            <input type="text" name="telefone" class="form-control" id="telefone" placeholder="Ex.:71 984568208">
+            <input type="text" name="telefone" class="form-control" id="telefone" placeholder="Ex.:71 984568208" required>
         </div>
         <div class="mb-4">
             <label for="cpf" class="form_label text-center">Cpf</label>
-            <input type="text" name="cpf" class="form-control" id="cpf" placeholder="Ex.:085.796.543-66">
+            <input type="text" name="cpf" class="form-control" id="cpf" placeholder="Ex.:085.796.543-66" required>
         </div>
            <div class="d-flex">
-               <button type="button" onclick="validarFormulario()" class="btn  btn-outline-primary">Salvar</button>
-               <button type="button" onclick="listarClientes()" class="btn btn-outline-success ms-auto">Lista</button>
+               <button type="button" onclick="validarFormulario()" class="btn  btn-outline-warning mb-4">Salvar</button>
+               <button type="button" onclick="listarClientes()" class="btn btn-outline-danger mb-4 ms-auto">Lista</button>
            </div>
+          
     </div>
 
         <table class="table mt-4">

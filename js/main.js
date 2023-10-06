@@ -67,8 +67,12 @@ function listarClientes() {
         <td>${cliente.email}</td>
         <td>${cliente.telefone}</td>
         <td>${cliente.cpf}</td>
-        `;
-       listaClientes.appendChild(listaItem);
+        <td>
+           <button onclick="editarCliente(${JSON.stringify(cliente)})" class="btn btn-outline-primary">Editar</button>
+           <button onclick="excluirCliente(${index})" class="btn btn-outline-danger">Excluir</button> 
+        </td> `;
+        // Adiciona a linha à lista de clientes
+        listaClientes.appendChild(listaItem);
     });
 }
 
@@ -92,3 +96,19 @@ function toUpperCaseInputs(){
 }
     // Chame a função para aplicar o evento de transformar em maiúsculo nos inputs
     toUpperCaseInputs();
+function editarCliente(index){
+    const cliente = clientes[index];
+    //Preencha os campos do formulário com os dados do cliente selecionado para editação.
+    document.getElementById('nome').value = cliente.nome;
+    document.getElementById('email').value = cliente.email;
+    document.getElementById('telefone').value = cliente.telefone;
+    document.getElementById('cpf').value = cliente.cpf;
+
+}
+function excluirCliente(index) {
+    //Remova o cliente da lista.
+    clientes.splice(index, 1);
+
+    //Atualize a exibição da lista.
+    listarClientes();
+}
